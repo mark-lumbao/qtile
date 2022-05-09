@@ -203,10 +203,12 @@ screens = [
                 widget.CurrentLayout(foreground="fe8019"),
                 widget.GroupBox(
                     hide_unused=True,
-                    active="ebdbb2",
+                    foreground="ebdbb2",
                     highlight_method="block",
                     block_highlight_text_color="282828",
                     this_current_screen_border="98971a",
+                    this_screen_border="98971a",
+                    urgent_border="fb4934",
                 ),
                 widget.Prompt(),
                 widget.WindowName(foreground="fabd2f"),
@@ -284,7 +286,11 @@ floating_layout = layout.Floating(
     border_width=3,
 )
 auto_fullscreen = True
-focus_on_window_activation = "smart"
+# Still considering urgent but this option is faster.
+# Meanwhile smart sometimes focuses and sometimes it doesn't
+# Reference:
+#   http://docs.qtile.org/en/stable/manual/config/index.html#configuration-variables
+focus_on_window_activation = "focus"
 reconfigure_screens = True
 
 # If things like steam games want to auto-minimize themselves when losing
