@@ -89,6 +89,17 @@ keys = [
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
     Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
+    # Traverse between active groups
+    Key(
+        [mod, "control"],
+        "k",
+        lazy.screen.next_group(skip_managed=False, skip_empty=True),
+    ),
+    Key(
+        [mod, "control"],
+        "j",
+        lazy.screen.prev_group(skip_managed=False, skip_empty=True),
+    ),
     # MonadTall Suggested
     Key([mod, "shift"], "h", lazy.layout.swap_left()),
     Key([mod, "shift"], "l", lazy.layout.swap_right()),
